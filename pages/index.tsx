@@ -1,5 +1,5 @@
-import { ActivityListItemProps } from "@/app/ActivityListItem";
-import ActivityList from "@/app/ActivityList";
+import { ActivityListItemProps } from "@/components/ActivityListItem";
+import ActivityList from "@/components/ActivityList";
 
 const sampleItems: ActivityListItemProps[] = [
   {
