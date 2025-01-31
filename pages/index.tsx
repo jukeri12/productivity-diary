@@ -1,32 +1,23 @@
-import { ActivityListItemProps } from "@/components/ActivityListItem";
 import ActivityList from "@/components/ActivityList";
-
-const sampleItems: ActivityListItemProps[] = [
-  {
-    title: "Programming",
-    description: "Programming my productivity app",
-    minutes: 60,
-    id: 1,
-  },
-  {
-    title: "Writing",
-    description: "Writing poems",
-    minutes: 60,
-    id: 2,
-  },
-  {
-    title: "Jogging",
-    description: "Jogging from city centre to Luolavuori",
-    minutes: 90,
-    id: 3,
-  },
-];
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [activities, setActivities] = useState([]);
+
+  useEffect(() => {
+    fetchActivities();
+  }, []);
+
+  const fetchActivities = async () => {
+    const res = await fetch("/api/activities");
+
+    const data = await res.json();
+    setActivities(data.data);
+  };
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
       <h1 className="main-title">Productivity Diary</h1>
-      <ActivityList items={sampleItems} />
+      <ActivityList items={activities} />
     </div>
   );
 }
