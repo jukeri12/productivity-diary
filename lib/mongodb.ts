@@ -1,7 +1,8 @@
 import mongoose from "mongoose";
 
+// TODO: Is this reasonable?
 const MONGODB_URI =
-  "mongodb://productivity:test@127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.3.8";
+  "mongodb://127.0.0.1:27017/productivity?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.3.8";
 
 if (!MONGODB_URI) {
   throw new Error("Please define the MONGODB_URI environment variable");
