@@ -8,7 +8,13 @@ export default async function handler(
 ) {
   await dbConnect();
 
-  const activities = await Activity.find({});
+  // TODO: Get single activity based on ID
+  const urlParts = req.url?.split("/");
 
-  res.status(200).json({ success: true, data: activities });
+  const id = urlParts?.slice(-1)[0];
+
+  let activity = {};
+  activity = await Activity.find({ id: parseInt(id) });
+
+  res.status(200).json({ success: true, data: activity });
 }

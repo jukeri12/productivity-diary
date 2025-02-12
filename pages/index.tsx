@@ -8,6 +8,7 @@ export default function Home() {
     fetchActivities();
   }, []);
 
+  // TODO: Move to lib
   const fetchActivities = async () => {
     const res = await fetch("/api/activities");
 
