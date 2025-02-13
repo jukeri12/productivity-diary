@@ -10,15 +10,13 @@ export default function Edit() {
   const router = useRouter();
 
   useEffect(() => {
-    console.log(router.query.slug);
-
     if (router.query.slug) {
       const idValue = parseInt(router.query.slug[0]);
-      fetchActivities(idValue);
+      fetchActivity(idValue);
     }
   }, [router.query.slug]);
 
-  const fetchActivities = async (id: number) => {
+  const fetchActivity = async (id: number) => {
     const res = await fetch("/api/activity/" + id.toString());
 
     const data = await res.json();
@@ -30,11 +28,11 @@ export default function Edit() {
       <h1 className="main-title">Add or edit diary entry</h1>
 
       <div style={{ display: "flex", flexDirection: "column" }}>
-        <label>
+        <label className="activity-editor-field">
           Title
           <input name="title" type="text" value={activity?.title}></input>
         </label>
-        <label>
+        <label className="activity-editor-field">
           Description
           <input
             name="description"
@@ -42,11 +40,15 @@ export default function Edit() {
             value={activity?.description}
           ></input>
         </label>
-        <label>
+        <label className="activity-editor-field">
           Minutes spent
           <input name="minutes" type="number" value={activity?.minutes}></input>
         </label>
-        <button type="submit">Save</button>
+        <div className="activity-editor-field">
+          <button className="submit-button" type="submit">
+            Save
+          </button>
+        </div>
       </div>
     </>
   );

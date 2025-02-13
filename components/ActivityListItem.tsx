@@ -11,10 +11,22 @@ export interface ActivityListItemProps {
 export default function ActivityListItem(props: ActivityListItemProps) {
   return (
     <div className="activity-list-item">
-      <h3>{props.title}</h3>
-      <p>{props.description}</p>
-      <p className="activity-list-item-minutes">{props.minutes}</p>
-      <Link href={"/edit/" + props.id}>
+      <div className="activity-list-item-header">
+        <h3>Title: </h3>
+        <h3 className="activity-title">{props.title}</h3>
+      </div>
+      <div className="activity-list-item-description">
+        <h3>Description: </h3>
+        <p>{props.description}</p>
+      </div>
+      <div className="activity-list-item-minutes">
+        <h3>Minutes spent: </h3>
+        <p>{props.minutes}</p>
+      </div>
+      <Link
+        href={"/edit/" + props.id}
+        className="activity-list-item-edit-button"
+      >
         <span
           className="material-symbols-outlined"
           style={{ fontSize: "46px", paddingTop: "25px", float: "right" }}

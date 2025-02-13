@@ -26,10 +26,54 @@ body {
   display: flex;
   flex-direction: column;
   background: whitesmoke;
-  height: auto;
+  justify-content: space-between;
+  padding: 1em 2em 1em 1em;
   width: 100%;
-  padding: 10px 20px 10px 10px;
   margin-bottom: 25px;
+  border-radius: 10px;
+}
+
+.activity-list-item-header {
+  display: flex;
+  width: 100%;
+  padding-bottom: 2em;
+}
+
+.activity-list-item-description {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-bottom: 1em;
+}
+
+.activity-list-item-minutes {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding-bottom: 1em;
+}
+
+.activity-list-item-edit-button {
+  align-self: flex-end;
+}
+
+.activity-title {
+  font-weight: bold;
+}
+
+.activity-editor-field {
+  display: flex;
+  padding: 5px;
+  width: 100%;
+  background-color: lightgray;
+  justify-content: space-between;
+}
+
+.submit-button {
+  background-color: pink;
+  border-radius: 2px;
+  padding: 0 2em;
+  align-self: flex-end;
 }
 
 .main-title {
