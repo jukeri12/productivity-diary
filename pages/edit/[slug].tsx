@@ -30,19 +30,29 @@ export default function Edit() {
       <div style={{ display: "flex", flexDirection: "column" }}>
         <label className="activity-editor-field">
           Title
-          <input name="title" type="text" value={activity?.title}></input>
-        </label>
-        <label className="activity-editor-field">
-          Description
           <input
-            name="description"
+            name="title"
             type="text"
-            value={activity?.description}
+            className="activity-editor-input"
+            value={activity?.title}
           ></input>
         </label>
         <label className="activity-editor-field">
+          Description
+          <textarea
+            name="description"
+            className="activity-editor-input"
+            value={activity?.description}
+          ></textarea>
+        </label>
+        <label className="activity-editor-field">
           Minutes spent
-          <input name="minutes" type="number" value={activity?.minutes}></input>
+          <input
+            name="minutes"
+            type="number"
+            className="activity-editor-input"
+            value={activity?.minutes}
+          ></input>
         </label>
         <div className="activity-editor-field">
           <button className="submit-button" type="submit">

@@ -21,7 +21,7 @@ export default function ActivityListItem(props: ActivityListItemProps) {
       </div>
       <div className="activity-list-item-minutes">
         <h3>Minutes spent: </h3>
-        <p>{props.minutes}</p>
+        <p className="activity-list-item-minutes-display">{props.minutes}</p>
       </div>
       <Link
         href={"/edit/" + props.id}
@@ -29,7 +29,12 @@ export default function ActivityListItem(props: ActivityListItemProps) {
       >
         <span
           className="material-symbols-outlined"
-          style={{ fontSize: "46px", paddingTop: "25px", float: "right" }}
+          style={{
+            fontSize: "3em",
+            backgroundColor: "pink",
+            borderRadius: "100%",
+            padding: "0.1em",
+          }}
         >
           edit
         </span>

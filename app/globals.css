@@ -22,39 +22,51 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+#main-layout {
+  width: 70%;
+}
+
+.activity-list {
+  display: flex;
+  flex-direction: column;
+}
+
 .activity-list-item {
   display: flex;
   flex-direction: column;
   background: whitesmoke;
   justify-content: space-between;
   padding: 1em 2em 1em 1em;
-  width: 100%;
   margin-bottom: 25px;
   border-radius: 10px;
 }
 
 .activity-list-item-header {
   display: flex;
-  width: 100%;
   padding-bottom: 2em;
 }
 
 .activity-list-item-description {
   display: flex;
   flex-direction: column;
-  width: 100%;
   padding-bottom: 1em;
 }
 
 .activity-list-item-minutes {
   display: flex;
   flex-direction: row;
-  width: 100%;
   padding-bottom: 1em;
+}
+
+.activity-list-item-minutes-display {
+  font-weight: bold;
 }
 
 .activity-list-item-edit-button {
   align-self: flex-end;
+
+  width: 3em;
+  height: 3em;
 }
 
 .activity-title {
@@ -65,15 +77,25 @@ body {
   display: flex;
   padding: 5px;
   width: 100%;
-  background-color: lightgray;
+  background-color: whitesmoke;
   justify-content: space-between;
+  font-weight: bold;
+}
+
+.activity-editor-input {
+  width: 80%;
+  margin-left: 3em;
+  font-weight: normal;
 }
 
 .submit-button {
   background-color: pink;
-  border-radius: 2px;
+  border-radius: 10px;
   padding: 0 2em;
   align-self: flex-end;
+  width: 100%;
+  font-size: 2em;
+  font-weight: bold;
 }
 
 .main-title {

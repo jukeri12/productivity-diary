@@ -16,7 +16,7 @@ export default function Home() {
     setActivities(data.data);
   };
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
+    <div className="activity-list">
       <h1 className="main-title">Productivity Diary</h1>
       <ActivityList items={activities} />
     </div>
