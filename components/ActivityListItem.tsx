@@ -2,7 +2,7 @@ import Link from "next/link";
 
 // TODO: Create a collected Type Definition file
 export interface ActivityListItemProps {
-  id: number;
+  _id: string;
   title: string;
   description?: string;
   minutes: number;
@@ -24,7 +24,7 @@ export default function ActivityListItem(props: ActivityListItemProps) {
         <p className="activity-list-item-minutes-display">{props.minutes}</p>
       </div>
       <Link
-        href={"/edit/" + props.id}
+        href={"/edit/" + props._id}
         className="activity-list-item-edit-button"
       >
         <span

@@ -11,8 +11,8 @@ export default function ActivityList(props: ActivityListProps) {
         title={listItem.title}
         description={listItem.description}
         minutes={listItem.minutes}
-        id={listItem.id}
-        key={listItem.id}
+        _id={listItem._id}
+        key={listItem._id}
       />
     );
   });

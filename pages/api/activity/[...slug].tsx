@@ -10,26 +10,21 @@ export default async function handler(
 
   const urlParts = req.url?.split("/");
 
-  const id = urlParts?.slice(-1)[0];
-  console.log(id);
+  const _id = urlParts?.slice(-1)[0];
 
-  if (!id) {
+  if (!_id) {
     res
       .status(500)
-      .json({ success: false, error: "Failed to find id for request" });
+      .json({ success: false, error: "Failed to find _id for request" });
   } else {
     let activity = {};
 
     if (req.method === "GET") {
-      activity = await Activity.find({ id: parseInt(id) });
-      console.log(id);
+      activity = await Activity.find({ _id: _id });
 
       res.status(200).json({ success: true, data: activity });
     } else if (req.method === "PUT") {
-      console.log(req.body);
-      console.log(req.body.id);
-
-      activity = await Activity.updateOne({ id: req.body.id }, req.body);
+      activity = await Activity.updateOne({ _id: req.body._id }, req.body);
 
       res.status(200).json({ success: true, data: activity });
     } else {
