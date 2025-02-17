@@ -1,3 +1,4 @@
+import Link from "next/link";
 import ActivityListItem, { ActivityListItemProps } from "./ActivityListItem";
 
 interface ActivityListProps {
@@ -7,13 +8,15 @@ interface ActivityListProps {
 export default function ActivityList(props: ActivityListProps) {
   return props.items.map((listItem) => {
     return (
-      <ActivityListItem
-        title={listItem.title}
-        description={listItem.description}
-        minutes={listItem.minutes}
-        _id={listItem._id}
-        key={listItem._id}
-      />
+      <>
+        <ActivityListItem
+          title={listItem.title}
+          description={listItem.description}
+          minutes={listItem.minutes}
+          _id={listItem._id}
+          key={listItem._id}
+        />
+      </>
     );
   });
 }
