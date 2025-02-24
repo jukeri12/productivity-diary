@@ -9,7 +9,6 @@ export default async function handler(
   await dbConnect();
 
   let activity = {};
-  console.log(req.body);
 
   if (req.method === "POST") {
     activity = await Activity.create(req.body);

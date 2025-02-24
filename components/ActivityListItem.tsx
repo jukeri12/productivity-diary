@@ -6,6 +6,7 @@ export interface ActivityListItemProps {
   title: string;
   description?: string;
   minutes: number;
+  date: string;
 }
 
 export default function ActivityListItem(props: ActivityListItemProps) {
@@ -22,6 +23,10 @@ export default function ActivityListItem(props: ActivityListItemProps) {
       <div className="activity-list-item-minutes">
         <h3>Minutes spent: </h3>
         <p className="activity-list-item-minutes-display">{props.minutes}</p>
+      </div>
+      <div className="activity-list-item-minutes">
+        <h3>Date: </h3>
+        <p className="activity-list-item-date">{props.date}</p>
       </div>
       <Link
         href={"/edit/" + props._id}

@@ -1,33 +1,18 @@
-import { useRouter } from "next/router";
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, useState } from "react";
 
 export default function New() {
   const [activity, setActivity] = useState({
     title: "",
     description: "",
     minutes: 0,
+    date: `${new Date().getFullYear()}-${new Date().getMonth()}-${new Date().getDate()}`,
   });
-  const router = useRouter();
-
-  useEffect(() => {
-    if (router.query.slug) {
-      const idValue = router.query.slug[0];
-      fetchActivity(idValue);
-    }
-  }, [router.query.slug]);
 
   const handleFieldChange = (e: ChangeEvent) => {
     const target = e.target.name;
     const value = e.target.value;
 
     setActivity({ ...activity, [target]: value });
-  };
-
-  const fetchActivity = async (_id: string) => {
-    const res = await fetch("/api/activity/" + _id.toString());
-
-    const data = await res.json();
-    setActivity(data.data[0]);
   };
 
   const handleSubmit = (e: SubmitEvent) => {
@@ -75,6 +60,16 @@ export default function New() {
               type="number"
               className="activity-editor-input"
               defaultValue={activity.minutes}
+              onChange={handleFieldChange}
+            ></input>
+          </label>
+          <label className="activity-editor-field">
+            Date
+            <input
+              name="date"
+              type="date"
+              className="activity-editor-input"
+              defaultValue={activity.date}
               onChange={handleFieldChange}
             ></input>
           </label>

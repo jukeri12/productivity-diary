@@ -7,6 +7,7 @@ export default function Edit() {
     title: "",
     description: "",
     minutes: 0,
+    date: `${new Date().getFullYear()}-${new Date().getMonth()}-${new Date().getDate()}`,
   });
   const router = useRouter();
 
@@ -79,6 +80,16 @@ export default function Edit() {
               type="number"
               className="activity-editor-input"
               defaultValue={activity.minutes}
+              onChange={handleFieldChange}
+            ></input>
+          </label>
+          <label className="activity-editor-field">
+            Date
+            <input
+              name="date"
+              type="date"
+              className="activity-editor-input"
+              defaultValue={activity.date}
               onChange={handleFieldChange}
             ></input>
           </label>
