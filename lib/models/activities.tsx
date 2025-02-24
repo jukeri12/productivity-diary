@@ -9,7 +9,7 @@ export interface IActivity extends Document {
 const ActivitySchema: Schema = new mongoose.Schema(
   {
     title: { type: String, required: true },
-    description: { type: String, required: true, unique: true },
+    description: { type: String, required: true },
     minutes: { type: String, required: true },
     date: { type: String, required: true },
   },
