@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { ChangeEvent, useEffect, useState } from "react";
+import fetchActivity from "@/lib/util/fetchActivity";
 
 export default function Edit() {
   const [activity, setActivity] = useState({
@@ -14,7 +15,13 @@ export default function Edit() {
   useEffect(() => {
     if (router.query.slug) {
       const idValue = router.query.slug[0];
-      fetchActivity(idValue);
+      fetchActivity(idValue)
+        .then((data) => {
+          setActivity(data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
   }, [router.query.slug]);
 
@@ -23,13 +30,6 @@ export default function Edit() {
     const value = e.target.value;
 
     setActivity({ ...activity, [target]: value });
-  };
-
-  const fetchActivity = async (_id: string) => {
-    const res = await fetch("/api/activity/" + _id.toString());
-
-    const data = await res.json();
-    setActivity(data.data[0]);
   };
 
   const handleSubmit = (e: SubmitEvent) => {
@@ -43,9 +43,6 @@ export default function Edit() {
     }).then((response) => {
       console.log(response.json());
     });
-
-    // TODO: Gather body from fields and not the original data
-    // TODO: Redirect user to activity list
   };
 
   return (
